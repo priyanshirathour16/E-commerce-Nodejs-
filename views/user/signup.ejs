@@ -1,0 +1,96 @@
+<% layout('layouts/boilerplate') -%> <%- include('../partials/success') %>
+
+<div class="row noform">
+  <div
+    class="col-6 mx-auto signup"
+    style="background-color: rgb(183, 213, 242)"
+  >
+    <h1 class="text-center mt-4">
+      Signup<i class="fa-solid fa-user-plus"></i>
+    </h1>
+    <form
+      action="/signup"
+      method="post"
+      class="mt-5 mt-3 needs-validation"
+      novalidate
+    >
+      <div class="mb-3">
+        <label for="name" class="form-label">Name<span>*</span></label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          aria-describedby="emailHelp"
+          placeholder="jon dev"
+          name="username"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email<span>*</span></label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="john@gmail.com"
+          name="email"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="number" class="form-label">Number<span>*</span></label>
+        <input
+          type="tel"
+          class="form-control"
+          id="number"
+          placeholder="+91"
+          name="number"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <p>Role<span>*</span></p>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="role"
+            id="flexRadioDefault1"
+            value="buyer"
+            checked
+          />
+          <label class="form-check-label" for="flexRadioDefault1" `>
+            Buyer
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="role"
+            id="flexRadioDefault2"
+            value="seller"
+          />
+          <label class="form-check-label" for="flexRadioDefault2">
+            Seller
+          </label>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="password " class="form-label">Password<span>*</span></label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          placeholder="at least 6 char"
+          name="password"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-primary btn-sm">Signup</button>
+    </form>
+    <div class="mt-2 mb-5">
+      Already have an Account ? <a href="/login">Login</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,95 @@
+<% layout('layouts/boilerplate') -%> <%- include('../partials/success') %>
+
+<h1>My Cart</h1>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-8">
+      <% for( let item of user.cart ) { %>
+      <div
+        class="cart-item-product"
+        data-productid="<%= item.productId._id %>"
+      ></div>
+      <div class="card mb-4" style="max-width: 640px">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src="<%= item.productId.img %>"
+              class="img-fluid rounded-start"
+              alt="..."
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center">
+                <h5 class="card-title"><%= item.productId.name %></h5>
+                <form
+                  action="/user/<%= item.productId._id %>?_method=DELETE"
+                  method="post"
+                >
+                  <button class="btn"><i class="fa-solid fa-xmark"></i></button>
+                </form>
+              </div>
+              <p class="card-text"><%= item.productId.desc %></p>
+              <p class="fw-bold">Price : $ <%= item.productId.price %></p>
+              <div>
+                <form
+                  class="d-inline"
+                  action="/products/<%= item.productId._id %>/decrement"
+                  method="post"
+                >
+                  <button
+                    class="btn bg-primary btn-sm text-light decrement-btn"
+                    quality-decrement="<%= item.productId._id %>"
+                  >
+                    -
+                  </button>
+                </form>
+
+                <p id="" class="d-inline decrement-display">
+                  <%= item.quantity %>
+                </p>
+
+                <form
+                  class="d-inline"
+                  action="/products/<%= item.productId._id %>/increment"
+                  method="post"
+                >
+                  <button
+                    class="btn bg-primary btn-sm text-light increment-btn"
+                    quality-increment="<%= item.productId._id %>"
+                  >
+                    +
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% } %>
+    </div>
+    <div class="col-lg-4">
+      <ul class="list-group">
+        <% for( let item of user.cart ) { %>
+        <li class="list-group-item">
+          <span class="text-dark fw-bold"><%= item.productId.name %></span> -
+          <span class="fw-bold"
+            ><%= item.productId.price %> x
+            <span id="display"><%= item.quantity %></span></span
+          >
+        </li>
+        <% } %>
+        <li class="list-group-item">
+          <span class="text-dark fw-bold">Total Price -</span>
+          <span id="total-price"><%= totalAmount %></span>
+        </li>
+      </ul>
+
+      <h3 id="check-btn" class="btn btn-success btn-sm mt-2">Check Out</h3>
+    </div>
+  </div>
+</div>
+
+<script src="/js/checkout.js"></script>
+<!-- <script src="/js/decrement.js"></script>
+<script src="/js/increment.js"></script> -->

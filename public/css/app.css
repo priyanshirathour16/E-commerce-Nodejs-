@@ -1,0 +1,19 @@
+.card img{
+    height: 200px;
+}
+
+main{
+    margin-top: 5.5rem;
+}
+span{
+    color:red;
+}
+.signup{
+    font-weight: 500;
+}
+.heart1{
+    color:red;
+}
+.marginin{
+    width: 100%;
+}

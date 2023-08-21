@@ -1,0 +1,48 @@
+<% layout('layouts/boilerplate') -%> <%- include('../partials/success') %>
+
+<div class="row noform border border-0">
+  <div
+    class="col-6 mx-auto mb-5 signup"
+    style="background-color: rgb(183, 213, 242)"
+  >
+    <h1 class="text-center mt-5">
+      Login <i class="fa-solid fa-user-plus"></i>
+    </h1>
+    <form
+      action="/login"
+      method="post"
+      class="mt-5 mt-3 needs-validation"
+      novalidate
+    >
+      <div class="mb-3">
+        <label for="validationTooltip01" class="form-label"
+          >Email<span>*</span></label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="validationTooltip01"
+          placeholder="john@gmail.com"
+          name="username"
+          required
+        />
+        <div class="invalid-tooltip">Please provide a valid email..</div>
+      </div>
+      <div class="mb-3">
+        <label for="validationTooltip02" class="form-label"
+          >Password<span>*</span></label
+        >
+        <input
+          type="password"
+          class="form-control"
+          id="validationTooltip02"
+          placeholder="at least 6 char"
+          name="password"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-primary btn-sm">Login</button>
+    </form>
+    <div class="mt-2 mb-5">No Account ? <a href="/signup">Signup</a></div>
+  </div>
+</div>

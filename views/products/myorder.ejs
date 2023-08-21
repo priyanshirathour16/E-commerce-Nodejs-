@@ -1,0 +1,23 @@
+<% layout('layouts/boilerplate') -%> <%- include('../partials/success') %>
+
+<div class="container">
+  <div>
+    <% for( let item of user.paymentOrders ) { %>
+    <div class="row d-flex border mt-5">
+      <div class="col-lg-4 product_img">
+        <img src="<%= item.id.img %>" alt="" class="ml-0 pl-0 marginin" />
+      </div>
+      <div class="col-lg-8 p-3">
+        <h1><%= item.id.name %></h1>
+        <p><%= item.id.desc %></p>
+        <div class="d-flex justify-content-between">
+          <p>
+            <span class="fw-bold">Total Price</span> : : <%=item.id.price %>
+          </p>
+          <p><span class="fw-bold"> Order Date : </span><%= item.date %></p>
+        </div>
+      </div>
+    </div>
+    <% } %>
+  </div>
+</div>
